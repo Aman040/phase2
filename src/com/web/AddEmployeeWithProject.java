@@ -2,8 +2,8 @@ package com.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -53,9 +53,9 @@ public class AddEmployeeWithProject extends HttpServlet {
 		Transaction tx=session.beginTransaction();
 
 		Employee e=new Employee(firstName,lastName,Double.parseDouble(salary),department);
-		List<Project> projects=new ArrayList<>();
-		Project p1=new Project(pTitle1,pNo1);
-		Project p2=new Project(pTitle2,pNo2);
+		Set<Project> projects=new HashSet<>();
+		Project p1=new Project(pNo1,pTitle1		);
+		Project p2=new Project(pNo2,pTitle2);
 		projects.add(p1);
 		projects.add(p2);
 		e.setProjects(projects);
